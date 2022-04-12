@@ -23,9 +23,9 @@ def main(cfg):
     model = cnn(lr=cfg["lr"], eps=cfg["eps"], wd=cfg["wd"])
 
     checkpoint_callback = ModelCheckpoint(
-        dirpath=".", filename="checkpoint", save_weights_only=True, every_n_epochs=1
+        dirpath="./Weights", filename="checkpoint"
     )
-    wandb_logger = WandbLogger(name='TSP-CV_training',project='kaggle_project')
+    wandb_logger = WandbLogger(name='TSP-CV_training', project='kaggle_project')
 
 
     trainer = pl.Trainer(
